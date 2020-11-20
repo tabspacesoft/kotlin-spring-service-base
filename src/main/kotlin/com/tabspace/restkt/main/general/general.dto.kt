@@ -1,6 +1,7 @@
 package com.tabspace.restkt.main.general
 
 import javax.validation.constraints.NotEmpty
+import javax.validation.constraints.NotNull
 
 /**
  * GOTCHAS:
@@ -11,12 +12,23 @@ import javax.validation.constraints.NotEmpty
  */
 
 class ContactUsRequest {
-    @NotEmpty
+    @NotEmpty(message = "name required")
     lateinit var name: String
 
-    @NotEmpty
+    @NotEmpty(message = "email required")
     lateinit var email: String
 
-    @NotEmpty
+    @NotEmpty(message = "message required")
     lateinit var message: String
 }
+
+//data class ContactUsRequest (
+//    @NotEmpty
+//    val name: String,
+//
+//    @NotEmpty
+//    val email: String,
+//
+//    @NotEmpty(message = "{message.notempty}")
+//    val message: String,
+//)
