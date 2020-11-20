@@ -20,6 +20,9 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+	implementation("org.hibernate:hibernate-validator:6.1.6.Final")
+	implementation("org.hibernate.validator:hibernate-validator-cdi:6.1.6.Final")
+	implementation("org.glassfish:jakarta.el:3.0.3")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }

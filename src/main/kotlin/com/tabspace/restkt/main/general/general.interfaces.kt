@@ -1,3 +1,6 @@
 package com.tabspace.restkt.main.general
 
-data class SystemHealth(val name: String, val version: String)
+import java.time.LocalDateTime
+
+data class SystemHealth(val name: String, val version: String, val time: LocalDateTime)
+
