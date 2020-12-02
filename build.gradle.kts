@@ -30,6 +30,7 @@ dependencies {
 	implementation("org.springframework.security:spring-security-web:4.2.19.RELEASE")
 	implementation("org.springframework.security:spring-security-config:4.2.19.RELEASE")
 	// JAX-B dependencies for JDK 9+
+	// https://stackoverflow.com/questions/43574426/java-how-to-resolve-java-lang-noclassdeffounderror-javax-xml-bind-jaxbexceptio
 	implementation("jakarta.xml.bind:jakarta.xml.bind-api:2.3.2")
 	implementation("org.glassfish.jaxb:jaxb-runtime:2.3.2")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
