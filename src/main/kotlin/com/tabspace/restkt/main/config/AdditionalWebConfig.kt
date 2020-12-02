@@ -1,7 +1,6 @@
 package com.tabspace.restkt.main.config
 
 import org.springframework.web.filter.CorsFilter
-import org.springframework.boot.web.servlet.FilterRegistrationBean
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.web.cors.CorsConfiguration

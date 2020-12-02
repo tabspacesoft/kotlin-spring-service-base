@@ -19,6 +19,8 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springframework.security.oauth:spring-security-oauth2:2.4.1.RELEASE")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
@@ -27,6 +29,9 @@ dependencies {
 	implementation("org.glassfish:jakarta.el:3.0.3")
 	implementation("org.springframework.security:spring-security-web:4.2.19.RELEASE")
 	implementation("org.springframework.security:spring-security-config:4.2.19.RELEASE")
+	// JAX-B dependencies for JDK 9+
+	implementation("jakarta.xml.bind:jakarta.xml.bind-api:2.3.2")
+	implementation("org.glassfish.jaxb:jaxb-runtime:2.3.2")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 
