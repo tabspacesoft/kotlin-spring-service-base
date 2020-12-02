@@ -36,6 +36,7 @@ class OauthServerConfig: AuthorizationServerConfigurerAdapter() {
                 .secret("{bcrypt}" + passwordEncoder.encode("secret"))
                 .authorizedGrantTypes("refresh_token", "password", "client_credentials")
                 .scopes("user_info")
+                .accessTokenValiditySeconds(60 * 60)
                 .autoApprove(true);
     }
 
