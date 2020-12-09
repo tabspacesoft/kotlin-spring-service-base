@@ -13,15 +13,19 @@ import org.springframework.security.crypto.password.PasswordEncoder
 
 @Configuration
 @EnableWebSecurity
-class WebSecurityConfig: WebSecurityConfigurerAdapter() {
+class WebSecurityConfig(
+        private val customUserDetailService: CustomUserDetailService,
+        private val passwordEncoderAndMatcher: PasswordEncoder
+): WebSecurityConfigurerAdapter() {
 
     @Throws(Exception::class)
     override fun configure(auth: AuthenticationManagerBuilder) {
-    System.out.println("{bcrypt}" + passwordEncoder().encode("1234"))
-        auth.inMemoryAuthentication()
-                .withUser("user")
-                .password("{bcrypt}" + passwordEncoder().encode("1234"))
-                .roles("USER")
+        print("{bcrypt}" + passwordEncoder().encode("1234"))
+//        auth.inMemoryAuthentication()
+//                .withUser("user")
+//                .password("{bcrypt}" + passwordEncoder().encode("1234"))
+//                .roles("USER")
+        auth.userDetailsService(customUserDetailService).passwordEncoder(passwordEncoder())
     }
 
     @Bean
