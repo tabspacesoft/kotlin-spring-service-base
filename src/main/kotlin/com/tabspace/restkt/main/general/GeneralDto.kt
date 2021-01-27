@@ -1,7 +1,7 @@
 package com.tabspace.restkt.main.general
 
+import com.fasterxml.jackson.annotation.JsonProperty
 import javax.validation.constraints.NotEmpty
-import javax.validation.constraints.NotNull
 
 /**
  * GOTCHAS:
@@ -12,15 +12,26 @@ import javax.validation.constraints.NotNull
  */
 
 class ContactUsRequest {
-    @NotEmpty(message = "name required")
+    @field:NotEmpty(message = "name is required")
     lateinit var name: String
 
-    @NotEmpty(message = "email required")
+    @field:NotEmpty(message = "email is required")
     lateinit var email: String
 
-    @NotEmpty(message = "message required")
+    @field:NotEmpty(message = "message is required")
     lateinit var message: String
 }
+
+data class ContactUsResponse(
+    @JsonProperty("name")
+    val name: String,
+
+    @JsonProperty("email")
+    val email: String,
+
+    @JsonProperty("message")
+    val message: String
+)
 
 //data class ContactUsRequest (
 //    @NotEmpty

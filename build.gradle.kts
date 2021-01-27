@@ -25,9 +25,9 @@ dependencies {
 	implementation("org.hibernate:hibernate-validator:6.1.6.Final")
 	implementation("org.hibernate.validator:hibernate-validator-cdi:6.1.6.Final")
 	implementation("org.glassfish:jakarta.el:3.0.3")
+	implementation("org.apache.commons", "commons-text", "1.9")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
-
 }
 
 tasks.withType<Test> {
