@@ -1,4 +1,4 @@
-package com.tabspace.restkt.main.config.properties
+package com.tabspace.restkt.main.utils.properties
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.context.MessageSource

@@ -1,4 +1,4 @@
-package com.tabspace.restkt.main.config.base
+package com.tabspace.restkt.main.utils.base
 
 data class ResultResponse<T>(
         var status: String,

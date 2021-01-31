@@ -13,39 +13,43 @@ import javax.validation.constraints.NotNull
  * RELATED ISSUES: https://github.com/OpenAPITools/openapi-generator/issues/5121
  */
 
+
 class ContactUsRequest {
-    @field:NotEmpty(message = "name is required")
+    @field:NotEmpty(message = "validation.isRequired")
     lateinit var name: String
 
-    @field:NotEmpty(message = "email is required")
+    @field:NotEmpty(message = "validation.isRequired")
     lateinit var email: String
 
-    @field:NotEmpty(message = "message is required")
+    @field:NotEmpty(message = "validation.isRequired")
     lateinit var message: String
 
     @Valid
-    @field:NotNull(message = "address is required")
+    @field:NotNull(message = "validation.isRequired")
     lateinit var address: ContactAddress
 }
 
 class ContactAddress {
-    @field:NotNull(message = "postal_code is required")
+    @field:NotNull(message = "validation.isRequired")
     val postal_code: String? = null
 
-    @field:NotNull(message = "tenant_name is required")
+    @field:NotNull(message = "validation.isRequired")
     val tenant_name: String? = null
 }
 
 
 data class ContactUsResponse(
     @JsonProperty("name")
-    val name: String,
+    val name: String? = null,
 
     @JsonProperty("email")
-    val email: String,
+    val email: String? = null,
 
     @JsonProperty("message")
-    val message: String
+    val message: String? = null,
+
+    @JsonProperty("address")
+    val address: ContactAddress? = null
 )
 
 //data class ContactUsRequest (

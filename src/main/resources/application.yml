@@ -1,0 +1,4 @@
+config:
+    localization:
+        defaultLanguage: en_us,
+        acceptedLanguage: in_id, en_us

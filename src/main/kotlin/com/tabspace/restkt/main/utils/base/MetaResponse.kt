@@ -1,6 +1,6 @@
-package com.tabspace.restkt.main.config.base
+package com.tabspace.restkt.main.utils.base
 
-import com.tabspace.restkt.main.config.properties.GlobalConstants
+import com.tabspace.restkt.main.utils.properties.GlobalConstants
 
 data class MetaResponse(
         var httpCode: Int,

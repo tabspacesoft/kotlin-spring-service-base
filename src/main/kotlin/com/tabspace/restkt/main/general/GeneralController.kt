@@ -1,7 +1,9 @@
 package com.tabspace.restkt.main.general
 
-import com.tabspace.restkt.main.config.base.BaseController
-import com.tabspace.restkt.main.config.base.ResultResponse
+import com.tabspace.restkt.main.utils.base.BaseController
+import com.tabspace.restkt.main.utils.base.ResultResponse
+import com.tabspace.restkt.main.utils.properties.AppMessages
+import com.tabspace.restkt.main.utils.properties.GlobalConstants
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -12,25 +14,30 @@ import javax.validation.Valid
 @RestController
 @RequestMapping(value = ["/"])
 class GeneralController @Autowired constructor(
-        private val generalService: GeneralService
+        private val generalService: GeneralService,
+        private val appMessages: AppMessages
 ): BaseController() {
     @GetMapping()
-    fun welcome(): ResponseEntity<ResultResponse<Any>> {
-        return generateResponse(
-                generalService.systemHealth(
+    fun welcome(): ResponseEntity<ResultResponse<String>> {
+        return generateResponse().done(
+                data =  generalService.systemHealth(
                         name = "Kotlin",
                         version = "1",
                         time = LocalDateTime.now()
-                )
-        ).done()
+                ),
+                msg = appMessages.call("resp.success", GlobalConstants.GET, "welcome"),
+                httpStatus = HttpStatus.OK
+        )
     }
 
     @PostMapping(value = ["contact-us"])
     fun contactUs(
             @RequestBody @Valid request: ContactUsRequest
-    ): ResponseEntity<ResultResponse<Any>> {
-        return generateResponse(
-                generalService.recordContact(request)
-        ).done("Success post contact us", HttpStatus.CREATED)
+    ): ResponseEntity<ResultResponse<ContactUsResponse>> {
+        return generateResponse().done(
+                data = generalService.recordContact(request),
+                msg = appMessages.call("resp.success", GlobalConstants.POST, "contact us"),
+                httpStatus = HttpStatus.OK
+        )
     }
 }

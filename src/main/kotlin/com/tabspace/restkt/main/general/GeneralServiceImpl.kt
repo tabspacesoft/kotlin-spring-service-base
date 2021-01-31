@@ -13,7 +13,8 @@ class GeneralServiceImpl : GeneralService {
         return ContactUsResponse(
             name = contactUsRequest.name,
             email = contactUsRequest.email,
-            message = contactUsRequest.message
+            message = contactUsRequest.message,
+            address = contactUsRequest.address
         )
     }
 }
